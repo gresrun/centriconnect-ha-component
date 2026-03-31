@@ -71,7 +71,6 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
     CentriConnectSensorEntityDescription(
         key=CentriConnectSensorType.ALERT_STATUS,
         translation_key=CentriConnectSensorType.ALERT_STATUS,
-        state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.ENUM,
         options=list(_ALERT_STATUS_VALUES.values()),
         value_fn=lambda coord: _ALERT_STATUS_VALUES.get(coord.data.alert_status),
@@ -95,8 +94,8 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda coord: (
             # The battery level is estimated based on the battery voltage,
-            # with 3.5V or below being 0% and 4.05V or above being 110%.
-            min(1.1, max(((coord.data.battery_voltage - 3.5) / 0.5), 0.0)) * 100
+            # with 3.5V or below being 0% and 4.05V or above being 100%.
+            min(1.0, max(((coord.data.battery_voltage - 3.5) / 0.5), 0.0)) * 100
             if coord.data.battery_voltage is not None
             else None
         ),
@@ -134,7 +133,6 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
         translation_key=CentriConnectSensorType.LATITUDE,
         native_unit_of_measurement=DEGREE,
         state_class=SensorStateClass.MEASUREMENT,
-        device_class=SensorDeviceClass.DISTANCE,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda coord: coord.data.latitude,
@@ -144,7 +142,6 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
         translation_key=CentriConnectSensorType.LONGITUDE,
         native_unit_of_measurement=DEGREE,
         state_class=SensorStateClass.MEASUREMENT,
-        device_class=SensorDeviceClass.DISTANCE,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         value_fn=lambda coord: coord.data.longitude,
@@ -154,8 +151,8 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
         translation_key=CentriConnectSensorType.LTE_SIGNAL_LEVEL,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
-        device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         entity_category=EntityCategory.DIAGNOSTIC,
+        suggested_display_precision=0,
         value_fn=lambda coord: (
             # The LTE signal level is estimated based on the LTE signal strength,
             # with -140 dBm or below being 0% and -70 dBm or above being 100%.
@@ -188,6 +185,7 @@ ENTITIES: tuple[CentriConnectSensorEntityDescription, ...] = (
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         entity_category=EntityCategory.DIAGNOSTIC,
+        suggested_display_precision=0,
         value_fn=lambda coord: (
             # The solar level is estimated based on the solar voltage,
             # with 0V being 0% and 2.86V or above being 110%.

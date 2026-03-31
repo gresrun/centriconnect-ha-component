@@ -59,7 +59,7 @@
         "default": "mdi:clock-start"
       },
       "solar_level": {
-        "default": "mdi:solar-wireless"
+        "default": "mdi:sun-wireless"
       },
       "solar_voltage": {
         "default": "mdi:solar-power"
