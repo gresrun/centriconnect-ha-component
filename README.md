@@ -1,0 +1,1 @@
+# centriconnect-ha-component
