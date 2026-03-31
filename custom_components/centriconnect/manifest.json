@@ -1,0 +1,12 @@
+{
+  "domain": "centriconnect",
+  "name": "CentriConnect/MyPropane API",
+  "codeowners": ["@gresrun"],
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/centriconnect",
+  "issue_tracker": "https://github.com/gresrun/centriconnect-ha-component/issues",
+  "integration_type": "device",
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "requirements": ["aiocentriconnect==0.2.0"]
+}
