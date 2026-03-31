@@ -1,6 +1,6 @@
 {
   "domain": "centriconnect",
-  "name": "CentriConnect/MyPropane API",
+  "name": "CentriConnect/MyPropane",
   "codeowners": ["@gresrun"],
   "config_flow": true,
   "documentation": "https://www.home-assistant.io/integrations/centriconnect",

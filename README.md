@@ -26,7 +26,7 @@ related:
     title: My link
 ---
 
-The **CentriConnect/MyPropane** {% term integration %} allows you to monitor the level and status of propane tanks equiped with [centriconnect.com](https://www.centriconnect.com/) monitoring devices from within Home Assistant and setup automations based on the information.
+**CentriConnect/MyPropane** {% term integration %} allows you to monitor the level and status of propane tanks equiped with [centriconnect.com](https://www.centriconnect.com/) monitoring devices from within Home Assistant and setup automations based on the information.
 
 ## Supported devices
 
